@@ -7,6 +7,7 @@
                 <span v-html="promotion.Description[0].shortDescription"></span>
             </p>
         </div>
+        <product-counter></product-counter>
         <div class="product-features">
             <p>product highlights</p>
             <ul>
@@ -21,11 +22,13 @@
 
 <script>
 import { mapState } from 'vuex';
-import Vue from 'vue';
+import ProductCounter from './ProductCounter';
 
 export default {
     name: 'ProductInformation',
-    components: {  },
+    components: {
+        ProductCounter
+    },
     
     props: {
     	
