@@ -1,0 +1,51 @@
+<template>
+	<div class="product-rating">
+        <span v-for="star in maxStarRatings">
+            <i v-if="star <= starRating" class="fas fa-star red"></i>
+            <i v-else class="fa fa-star grey"></i>
+        </span>
+    </div>
+</template>
+
+<script>
+import { mapState } from 'vuex';
+
+export default {
+    name: 'ProductRating',
+    components: {},
+    
+    props: {
+    	rating: {
+            type: [Number,String],
+            default: 0
+        },
+        maxRating: {
+            type: [Number, String],
+            default: 5
+        }
+    },
+
+     data() {
+        return {
+           starRating: Math.round(this.rating),
+           maxStarRatings: Math.round(this.maxRating)
+        }
+    },
+
+    computed: {
+    },
+    
+    methods: {
+    }
+}
+</script>
+
+<style lang="scss" scoped>
+.red {
+    color: #cc0000;
+}
+
+.grey {
+    color: #999;
+}
+</style>

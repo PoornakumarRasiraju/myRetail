@@ -11,11 +11,13 @@
             </div>
             <div class="product-review__details-wrapper">
                 <div class="product-review__details-pro" v-for="proReview in productReviews.Pro">
+                    <product-rating :rating="proReview.overallRating" maxRating="5"></product-rating>
                     <p><strong>{{proReview.title}}</strong></p>
                     <p>{{proReview.review}}</p>
                     <p><span>{{proReview.screenName}}</span><span>{{proReview.datePosted}}</span></p>
                 </div>
                 <div class="product-review__details-con" v-for="conReview in productReviews.Con">
+                    <product-rating :rating="conReview.overallRating" maxRating="5"></product-rating>
                     <p><strong>{{conReview.title}}</strong></p>
                     <p>{{conReview.review}}</p>
                     <p><span>{{conReview.screenName}}</span> <span>{{conReview.datePosted}}</span></p>
@@ -26,14 +28,13 @@
 </template>
 
 <script>
-// import ProductReview from './ProductReview.vue';
+import ProductRating from './ProductRating.vue';
 import { mapState } from 'vuex';
-import Vue from 'vue';
 
 export default {
     name: 'ProductReviews',
     components: {
-        // ProductReview
+        ProductRating
     },
     
     props: {
@@ -58,6 +59,7 @@ export default {
     },
     
     methods: {
+        
     }
 }
 </script>
@@ -70,16 +72,31 @@ export default {
 }
 
 .product-review__details {
-    background-color: #ccc;
+    background-color: #f6f5f5;
 }
 
 .product-review__details-pro-con {
+    border-bottom: 1px solid #ccc;
     display: flex;
+    padding-bottom: 10px;
+    padding-top: 10px;
 
     p {
         display: flex;
         flex-direction: column;
         flex: 1;
     }
+}
+
+.product-review__details-wrapper {
+    display: flex;
+    flex: 1;
+}
+
+.product-review__details-pro,
+.product-review__details-con {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 </style>
