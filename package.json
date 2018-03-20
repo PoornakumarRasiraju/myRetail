@@ -59,6 +59,7 @@
     "file-loader": "^0.9.0",
     "friendly-errors-webpack-plugin": "^1.1.2",
     "html-webpack-plugin": "^2.22.0",
+    "moment": "^2.21.0",
     "node-sass": "^4.7.2",
     "offline-plugin": "^4.5.3",
     "postcss-loader": "^0.9.1",

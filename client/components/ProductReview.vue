@@ -1,20 +1,23 @@
 <template>
     <div class="product-review">
-        <p><strong>{{proReview.title}}</strong></p>
-        <p>{{proReview.review}}</p>
+        <p><strong>{{review.title}}</strong></p>
+        <p>{{review.review}}</p>
+        <p><span>{{review.screenName}}</span><span>{{datePosted(review.datePosted)}}</span></p>
     </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import Vue from 'vue';
+import moment from 'moment';
 
 export default {
-    name: 'ProductReviews',
+    name: 'ProductReview',
     components: {  },
     
     props: {
-    	
+    	review: {
+            type: Object,
+            default: {}
+        }
     },
 
      data() {
@@ -28,6 +31,9 @@ export default {
     },
     
     methods: {
+        datePosted(date) {
+            return moment(date).format('LL');
+        }
     }
 }
 </script>

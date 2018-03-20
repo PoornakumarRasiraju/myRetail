@@ -1,5 +1,6 @@
 <template>
 	<section>
+        <p>{{productPrice.formattedPriceValue}} {{productPrice.priceQualifier}}</p>
         <div class="product-promotions">
             <p  class="product-promotions" v-for="promotion in productPromotions">
                 <i class="fas fa-tag"></i>
@@ -38,6 +39,7 @@ export default {
 
     computed: {
         ...mapState({
+            productPrice: state => state.CatalogEntryView[0].Offers[0].OfferPrice[0],
             productFeatures: state => state.CatalogEntryView[0].ItemDescription[0].features,
             productPromotions: state => state.CatalogEntryView[0].Promotions,
             productReturns: state => state.CatalogEntryView[0].ReturnPolicy[0].legalCopy

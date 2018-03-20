@@ -1,9 +1,12 @@
 <template>
 	<section class="product-reviews">
-        <p>
-            <span>Create Star Component</span>
-            <span>view all 14 reviews</span>
-        </p>
+        <div class="product-review__overall-rating">
+            <div>
+                <product-rating :rating="productReviews.consolidatedOverallRating" maxRating="5"></product-rating>
+                <span>overall</span>
+            </div>
+            <p>view all 14 reviews</p>
+        </div>
         <div class="product-review__details">
             <div class="product-review__details-pro-con">
                 <p><span>PRO</span><span>most helpful 4-5 star review</span></p>
@@ -12,15 +15,11 @@
             <div class="product-review__details-wrapper">
                 <div class="product-review__details-pro" v-for="proReview in productReviews.Pro">
                     <product-rating :rating="proReview.overallRating" maxRating="5"></product-rating>
-                    <p><strong>{{proReview.title}}</strong></p>
-                    <p>{{proReview.review}}</p>
-                    <p><span>{{proReview.screenName}}</span><span>{{proReview.datePosted}}</span></p>
+                    <product-review :review="proReview"></product-review>
                 </div>
                 <div class="product-review__details-con" v-for="conReview in productReviews.Con">
                     <product-rating :rating="conReview.overallRating" maxRating="5"></product-rating>
-                    <p><strong>{{conReview.title}}</strong></p>
-                    <p>{{conReview.review}}</p>
-                    <p><span>{{conReview.screenName}}</span> <span>{{conReview.datePosted}}</span></p>
+                    <product-review :review="conReview"></product-review>
                 </div>
             </div>
         </div>
@@ -28,13 +27,16 @@
 </template>
 
 <script>
-import ProductRating from './ProductRating.vue';
+import moment from 'moment';
 import { mapState } from 'vuex';
+import ProductRating from './ProductRating';
+import ProductReview from './ProductReview';
 
 export default {
     name: 'ProductReviews',
     components: {
-        ProductRating
+        ProductRating,
+        ProductReview
     },
     
     props: {
@@ -43,23 +45,16 @@ export default {
 
      data() {
         return {
-           
         }
     },
 
     computed: {
         ...mapState({
-            product: state => state.CatalogEntryView[0],
-            productImages: state => state.CatalogEntryView[0].Images[0],
-            productReviews: state => state.CatalogEntryView[0].CustomerReview[0],
+            productReviews: state => state.CatalogEntryView[0].CustomerReview[0]
         }),
-        primaryImage() {
-            return this.productImages.PrimaryImage[0].image;
-        }
     },
     
     methods: {
-        
     }
 }
 </script>
