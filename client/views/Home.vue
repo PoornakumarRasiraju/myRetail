@@ -1,7 +1,7 @@
 <template>
   <div class="product-catalog">
     <product></product>
-    <product-information></product-information>
+    <product-information class="product-information"></product-information>
   </div>
 </template>
 
@@ -21,6 +21,10 @@ export default {
 .product-catalog {
   display: flex;
   margin: 40px 30px;
+}
+
+.product-information {
+  margin-left: 33px;
 }
 
 p {
