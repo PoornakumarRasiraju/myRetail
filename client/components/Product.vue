@@ -8,8 +8,6 @@
 
 <script>
 import ProductReviews from './ProductReviews';
-import { mapState } from 'vuex';
-import Vue from 'vue';
 
 export default {
     name: 'Product',
@@ -28,12 +26,11 @@ export default {
     },
 
     computed: {
-        ...mapState({
-            product: state => state.CatalogEntryView[0],
-            productImages: state => state.CatalogEntryView[0].Images[0]
-        }),
+        product() {
+            return this.$store.state.CatalogEntryView[0];
+        },
         primaryImage() {
-            return this.productImages.PrimaryImage[0].image;
+            return this.$store.state.CatalogEntryView[0].Images[0].PrimaryImage[0].image;
         }
     },
     

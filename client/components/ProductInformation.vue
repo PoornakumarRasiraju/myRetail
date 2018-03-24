@@ -39,7 +39,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
 import ProductCounter from './ProductCounter';
 import VButton from './VButton';
 
@@ -70,12 +69,18 @@ export default {
     },
 
     computed: {
-        ...mapState({
-            productPrice: state => state.CatalogEntryView[0].Offers[0].OfferPrice[0],
-            productFeatures: state => state.CatalogEntryView[0].ItemDescription[0].features,
-            productPromotions: state => state.CatalogEntryView[0].Promotions,
-            productReturns: state => state.CatalogEntryView[0].ReturnPolicy[0].legalCopy
-        })
+        productPrice() {
+            return this.$store.state.CatalogEntryView[0].Offers[0].OfferPrice[0];
+        },
+        productFeatures() {
+            return this.$store.state.CatalogEntryView[0].ItemDescription[0].features;
+        },
+        productPromotions() {
+            return this.$store.state.CatalogEntryView[0].Promotions;
+        },
+        productReturns() {
+            return this.$store.state.CatalogEntryView[0].ReturnPolicy[0].legalCopy;
+        }
     },
     
     methods: {

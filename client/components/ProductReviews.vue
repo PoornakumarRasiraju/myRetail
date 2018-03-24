@@ -30,7 +30,6 @@
 
 <script>
 import moment from 'moment';
-import { mapState } from 'vuex';
 import ProductRating from './ProductRating';
 import ProductReview from './ProductReview';
 
@@ -51,9 +50,9 @@ export default {
     },
 
     computed: {
-        ...mapState({
-            productReviews: state => state.CatalogEntryView[0].CustomerReview[0]
-        }),
+        productReviews() {
+            return this.$store.state.CatalogEntryView[0].CustomerReview[0];
+        }
     },
     
     methods: {

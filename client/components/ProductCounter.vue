@@ -7,8 +7,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-
 export default {
     name: 'ProductCounter',
     components: {
@@ -26,9 +24,9 @@ export default {
     },
 
     computed: {
-        ...mapState({
-            productPrice: state => state.CatalogEntryView[0].Offers[0].OfferPrice[0]
-        })
+        productPrice() {
+            return this.$store.state.CatalogEntryView[0].Offers[0].OfferPrice[0];
+        }
     },
     
     methods: {
