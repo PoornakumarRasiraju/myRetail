@@ -50,7 +50,7 @@ section {
 }
 
 .product-title {
-    font-size: 13px;
+    font-size: 26px;
     color: #000;
     justify-content: center;
 }

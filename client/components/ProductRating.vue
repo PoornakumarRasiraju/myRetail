@@ -48,4 +48,8 @@ export default {
 .grey {
     color: #999;
 }
+
+.product-rating {
+    margin-bottom: 6px;
+}
 </style>

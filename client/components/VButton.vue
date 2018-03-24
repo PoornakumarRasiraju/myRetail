@@ -1,5 +1,5 @@
 <template>
-    <button class="button" :style="style" :class="classes" type="button" @click="clickHandler">{{label}}</button>
+    <button class="button" :style="buttonStyle" :class="classes" type="button" @click="clickHandler">{{label}}</button>
 </template>
 
 <script>
@@ -13,8 +13,8 @@ export default {
             type: String,
             default: 'button--action'
         },
-        style: {
-            type: Object
+        buttonStyle: {
+            type: String
         }
     },
     methods: {

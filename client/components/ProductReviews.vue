@@ -1,25 +1,27 @@
 <template>
 	<section class="product-reviews">
         <div class="product-review__overall-rating">
-            <div>
+            <div class="product-review__overall-rating-wrapper">
                 <product-rating :rating="productReviews.consolidatedOverallRating" maxRating="5"></product-rating>
                 <span>overall</span>
             </div>
             <p>view all 14 reviews</p>
         </div>
         <div class="product-review__details">
-            <div class="product-review__details-pro-con">
-                <p><span>PRO</span><span>most helpful 4-5 star review</span></p>
-                <p><span>CON</span><span>most helpful 1-2 star review</span></p>
-            </div>
-            <div class="product-review__details-wrapper">
-                <div class="product-review__details-pro" v-for="proReview in productReviews.Pro">
-                    <product-rating :rating="proReview.overallRating" maxRating="5"></product-rating>
-                    <product-review :review="proReview"></product-review>
+            <div class="product-review__details--wrapper">
+                <div class="product-review__details-pro-con">
+                    <p><span>PRO</span><span>most helpful 4-5 star review</span></p>
+                    <p><span>CON</span><span>most helpful 1-2 star review</span></p>
                 </div>
-                <div class="product-review__details-con" v-for="conReview in productReviews.Con">
-                    <product-rating :rating="conReview.overallRating" maxRating="5"></product-rating>
-                    <product-review :review="conReview"></product-review>
+                <div class="product-review__details-wrapper">
+                    <div class="product-review__details-pro" v-for="proReview in productReviews.Pro">
+                        <product-rating :rating="proReview.overallRating" maxRating="5"></product-rating>
+                        <product-review :review="proReview"></product-review>
+                    </div>
+                    <div class="product-review__details-con" v-for="conReview in productReviews.Con">
+                        <product-rating :rating="conReview.overallRating" maxRating="5"></product-rating>
+                        <product-review :review="conReview"></product-review>
+                    </div>
                 </div>
             </div>
         </div>
@@ -66,8 +68,22 @@ export default {
     font-size: 14px;
 }
 
+.product-review__overall-rating {
+    display: flex;
+}
+
+.product-review__overall-rating-wrapper {
+    display: flex;
+    flex: 1;
+    margin-bottom: 10px;
+}
+
 .product-review__details {
     background-color: #f6f5f5;
+}
+
+.product-review__details--wrapper {
+    margin: 16px 12px 25px 20px;
 }
 
 .product-review__details-pro-con {
@@ -86,6 +102,11 @@ export default {
 .product-review__details-wrapper {
     display: flex;
     flex: 1;
+    margin-top: 20px
+}
+
+.product-review__details-pro {
+    margin-right: 22px;
 }
 
 .product-review__details-pro,

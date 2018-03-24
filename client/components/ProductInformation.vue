@@ -19,10 +19,10 @@
                 <v-button label="ADD TO REGISTRY"></v-button>
             </div>
             <div class="product-add-list">
-                <v-button :style="listStyle" label="ADD TO LIST"></v-button>
+                <v-button :buttonStyle="listStyle" label="ADD TO LIST"></v-button>
             </div>
             <div class="product-add-cart">
-                <v-button :style="cartStyle" label="SHARE"></v-button>
+                <v-button :buttonStyle="cartStyle" label="SHARE"></v-button>
             </div>
         </div>
         <div class="product-features">
