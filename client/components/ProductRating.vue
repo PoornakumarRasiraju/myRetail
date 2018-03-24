@@ -51,5 +51,6 @@ export default {
 
 .product-rating {
     margin-bottom: 6px;
+    margin-right: 8px;
 }
 </style>

@@ -11,6 +11,10 @@
             </p>
         </div>
         <product-counter></product-counter>
+          <div class="product-add-to-cart">
+            <v-button :buttonStyle="pickUpStyle" label="PICK UP IN STORE"></v-button>
+            <v-button :buttonStyle="cartStyle" label="ADD TO CART"></v-button>
+        </div>
         <div class="product-returns">
             <div class="product-returns__copy" v-html="productReturns"></div>
         </div>
@@ -22,7 +26,7 @@
                 <v-button :buttonStyle="listStyle" label="ADD TO LIST"></v-button>
             </div>
             <div class="product-add-cart">
-                <v-button :buttonStyle="cartStyle" label="SHARE"></v-button>
+                <v-button :buttonStyle="shareStyle" label="SHARE"></v-button>
             </div>
         </div>
         <div class="product-features">
@@ -54,8 +58,14 @@ export default {
         return {
             listStyle: `paddingLeft: 48px;
                         paddingRight: 54px`,
-            cartStyle: `paddingLeft: 51px;
-                        paddingRight: 57px`
+            shareStyle: `paddingLeft: 51px;
+                        paddingRight: 57px`,
+            pickUpStyle: `backgroundColor: #000;
+                        color:#fff`,
+            cartStyle: `paddingLeft: 48px;
+                        paddingRight: 54px;
+                        backgroundColor: #cc0000;
+                        color: #fff`
         }
     },
 
@@ -91,6 +101,10 @@ section {
 
 .product-price__qualifier {
     font-size: 12px;
+}
+
+.product-add-to-cart {
+    margin-bottom: 20px;
 }
 
 .product-promotions {
