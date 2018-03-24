@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import Product from 'components/Product';
-import ProductInformation from 'components/ProductInformation';
+import Product from 'components/Product/Product';
+import ProductInformation from 'components/ProductInformation/ProductInformation';
 
 export default {
   components: {
@@ -20,6 +20,7 @@ export default {
 <style lang="scss">
 .product-catalog {
   display: flex;
+  font-family: Arial, Helvetica, sans-serif;
   margin: 40px 30px;
 }
 

@@ -37,8 +37,8 @@
 
 <script>
 import moment from 'moment';
-import ProductRating from './ProductRating';
-import ProductReview from './ProductReview';
+import ProductRating from '../Generic/ProductRating';
+import ProductReview from '../Generic/ProductReview';
 
 export default {
     name: 'ProductReviews',
@@ -130,5 +130,14 @@ export default {
     display: flex;
     flex-direction: column;
     flex: 1;
+}
+
+.product-review__review {
+    border-bottom: 1px solid #D6D6D6;
+    margin-bottom: 30px;
+
+    &:last-child {
+        border-bottom: none;
+    }
 }
 </style>

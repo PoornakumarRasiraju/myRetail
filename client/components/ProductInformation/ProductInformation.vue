@@ -40,7 +40,7 @@
 
 <script>
 import ProductCounter from './ProductCounter';
-import VButton from './VButton';
+import VButton from '../Generic/VButton';
 
 export default {
     name: 'ProductInformation',
