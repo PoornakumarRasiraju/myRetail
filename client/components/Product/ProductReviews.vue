@@ -3,15 +3,15 @@
         <div class="product-review__overall-rating">
             <div class="product-review__overall-rating-wrapper">
                 <product-rating :rating="productReviews.consolidatedOverallRating" maxRating="5"></product-rating>
-                <span>overall</span>
+                <span class="product-overall">overall</span>
             </div>
-            <p @click="viewAllReviews" class="product-view-reviews">{{view}} all 14 reviews</p>
+            <p @click="viewAllReviews" class="product-view-all">{{view}} all 14 reviews</p>
         </div>
         <div class="product-review__details">
             <div v-if="!showAllReviews" class="product-review__details--wrapper">
                 <div class="product-review__details-pro-con">
-                    <p><span>PRO</span><span>most helpful 4-5 star review</span></p>
-                    <p><span>CON</span><span>most helpful 1-2 star review</span></p>
+                    <p><span class="product-view-label">PRO</span><span class="product-view-text">most helpful 4-5 star review</span></p>
+                    <p><span class="product-view-label">CON</span><span class="product-view-text">most helpful 1-2 star review</span></p>
                 </div>
                 <div class="product-review__details-wrapper">
                     <div class="product-review__details-pro" v-for="proReview in productReviews.Pro">
@@ -90,8 +90,13 @@ export default {
     margin-bottom: 10px;
 }
 
-.product-view-reviews {
+.product-view-all {
     cursor: pointer;
+    font-weight: bold;
+}
+
+.product-overall {
+    font-weight: bold;
 }
 
 .product-review__details {
@@ -113,6 +118,15 @@ export default {
         flex-direction: column;
         flex: 1;
     }
+}
+
+.product-view-label {
+    font-size: 18px;
+}
+
+.product-view-text {
+    font-size: 12px;
+    color: #666;
 }
 
 .product-review__details-wrapper {

@@ -47,10 +47,23 @@ export default {
 }
 
 .product-review__title {
+    font-size: 16px;
     margin-bottom: 4px;
 }
 
 .product-review__review {
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+}
+
+.product-review__screen-name {
+    color: #0066cc;
+    cursor: pointer;
+    margin-right: 4px;
+}
+
+.product-review__review,
+.product-review__post {
+    font-size: 12px;
+    color: #333;
 }
 </style>

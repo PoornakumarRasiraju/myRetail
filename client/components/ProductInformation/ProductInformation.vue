@@ -61,6 +61,8 @@ export default {
                         paddingRight: 57px`,
             pickUpStyle: `backgroundColor: #000;
                         color:#fff;
+                        paddingLeft: 34px;
+                        paddingRight: 34px;
                         marginRight: 30px`,
             cartStyle: `paddingLeft: 48px;
                         paddingRight: 54px;
@@ -124,6 +126,7 @@ section {
 }
 
 .product-price__qualifier {
+    color: #666;
     font-size: 12px;
 }
 
@@ -160,8 +163,13 @@ section {
 }
 
 .product-highlight {
+    color: #666;
     font-size: 14px;
     padding-left: 18px;
+
+    li {
+        margin-bottom: 6px;
+    }
 }
 
 .product-actions {
@@ -183,13 +191,14 @@ section {
 .product-returns__copy {
     font-size: 20px;
     align-items: center;
+    color: #666;
 }
 </style>
 
 <style lang="scss">
 .product-returns__copy {
     p {
-        font-size: 10px;
+        font-size: 10px !important;
         padding-left: 15px;
         border-left: 1px solid #ccc;
         margin-left: 20px;
