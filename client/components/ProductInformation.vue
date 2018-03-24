@@ -12,8 +12,8 @@
         </div>
         <product-counter></product-counter>
           <div class="product-add-to-cart">
-            <v-button :buttonStyle="pickUpStyle" label="PICK UP IN STORE"></v-button>
-            <v-button :buttonStyle="cartStyle" label="ADD TO CART"></v-button>
+            <v-button  v-if="isInStore" :buttonStyle="pickUpStyle" label="PICK UP IN STORE"></v-button>
+            <v-button v-if="isProductAvailable" :buttonStyle="cartStyle" label="ADD TO CART"></v-button>
         </div>
         <div class="product-returns">
             <div class="product-returns__copy" v-html="productReturns"></div>
@@ -60,7 +60,8 @@ export default {
             shareStyle: `paddingLeft: 51px;
                         paddingRight: 57px`,
             pickUpStyle: `backgroundColor: #000;
-                        color:#fff`,
+                        color:#fff;
+                        marginRight: 30px`,
             cartStyle: `paddingLeft: 48px;
                         paddingRight: 54px;
                         backgroundColor: #cc0000;
@@ -80,6 +81,24 @@ export default {
         },
         productReturns() {
             return this.$store.state.CatalogEntryView[0].ReturnPolicy[0].legalCopy;
+        },
+        isInStore() {
+            let purchaseCode = parseInt(this.$store.state.CatalogEntryView[0].purchasingChannelCode);
+
+            if(purchaseCode === 0 || purchaseCode === 1) {
+                return true;
+            }
+
+            return false;
+        },
+        isProductAvailable() {
+            let purchaseCode = parseInt(this.$store.state.CatalogEntryView[0].purchasingChannelCode);
+
+            if(purchaseCode === 0 || purchaseCode === 2) {
+                return true;
+            }
+
+            return false;
         }
     },
     
