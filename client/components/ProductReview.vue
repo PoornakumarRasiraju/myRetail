@@ -42,6 +42,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.product-review {
+    margin-bottom: 20px;
+}
+
 .product-review__title {
     margin-bottom: 4px;
 }

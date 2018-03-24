@@ -5,10 +5,10 @@
                 <product-rating :rating="productReviews.consolidatedOverallRating" maxRating="5"></product-rating>
                 <span>overall</span>
             </div>
-            <p>view all 14 reviews</p>
+            <p @click="viewAllReviews" class="product-view-reviews">{{view}} all 14 reviews</p>
         </div>
         <div class="product-review__details">
-            <div class="product-review__details--wrapper">
+            <div v-if="!showAllReviews" class="product-review__details--wrapper">
                 <div class="product-review__details-pro-con">
                     <p><span>PRO</span><span>most helpful 4-5 star review</span></p>
                     <p><span>CON</span><span>most helpful 1-2 star review</span></p>
@@ -22,6 +22,13 @@
                         <product-rating :rating="conReview.overallRating" maxRating="5"></product-rating>
                         <product-review :review="conReview"></product-review>
                     </div>
+                </div>
+            </div>
+
+            <div v-else class="product-review__details--wrapper">
+                <div class="product-review__review" v-for="review in productReviews.Reviews">
+                    <product-rating :rating="review.overallRating" maxRating="5"></product-rating>
+                    <product-review :review="review"></product-review>
                 </div>
             </div>
         </div>
@@ -46,6 +53,8 @@ export default {
 
      data() {
         return {
+            showAllReviews: false,
+            view: 'view'
         }
     },
 
@@ -56,6 +65,10 @@ export default {
     },
     
     methods: {
+        viewAllReviews() {
+            this.showAllReviews = !this.showAllReviews;
+            this.view = this.showAllReviews ? 'hide' : 'view';
+        }
     }
 }
 </script>
@@ -75,6 +88,10 @@ export default {
     display: flex;
     flex: 1;
     margin-bottom: 10px;
+}
+
+.product-view-reviews {
+    cursor: pointer;
 }
 
 .product-review__details {
