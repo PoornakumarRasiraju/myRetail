@@ -19,6 +19,7 @@
 <script>
 import moment from 'moment';
 import ProductRating from './ProductRating';
+import Resource from '../../resource/Resource-en.js';
 
 export default {
     name: 'ProductReview',
@@ -39,7 +40,7 @@ export default {
 
      data() {
         return {
-           viewMoreLabel: 'see more',
+           viewMoreLabel: Resource.VIEW_MORE_LABEL,
            showRatableAttributes: false
         }
     },
@@ -54,7 +55,7 @@ export default {
         },
         viewDetailedReview() {
             this.showRatableAttributes = !this.showRatableAttributes;
-            this.viewMoreLabel = this.showRatableAttributes ? 'see less' : 'see more';
+            this.viewMoreLabel = this.showRatableAttributes ? Resource.VIEW_LESS_LABEL : Resource.VIEW_MORE_LABEL;
         }
     }
 }

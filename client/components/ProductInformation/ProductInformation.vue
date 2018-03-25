@@ -12,25 +12,25 @@
         </div>
         <product-counter></product-counter>
           <div class="product-add-to-cart">
-            <v-button  v-if="isInStore" :classes="pickUpStyle" label="PICK UP IN STORE"></v-button>
-            <v-button v-if="isProductAvailable" :classes="cartStyle" label="ADD TO CART"></v-button>
+            <v-button  v-if="isInStore" :classes="pickUpStyle" :label="resource.BUTTON_LABEL.PICK_UP"></v-button>
+            <v-button v-if="isProductAvailable" :classes="cartStyle" :label="resource.BUTTON_LABEL.ADD_CART"></v-button>
         </div>
         <div class="product-returns">
             <div class="product-returns__copy" v-html="productReturns"></div>
         </div>
         <div class="product-actions">
             <div class="product-add-registry">
-                <v-button label="ADD TO REGISTRY"></v-button>
+                <v-button :label="resource.BUTTON_LABEL.ADD_REGISTRY"></v-button>
             </div>
             <div class="product-add-list">
-                <v-button :buttonStyle="listStyle" label="ADD TO LIST"></v-button>
+                <v-button :buttonStyle="listStyle" :label="resource.BUTTON_LABEL.ADD_LIST"></v-button>
             </div>
             <div class="product-add-cart">
-                <v-button :buttonStyle="shareStyle" label="SHARE"></v-button>
+                <v-button :buttonStyle="shareStyle" :label="resource.BUTTON_LABEL.SHARE"></v-button>
             </div>
         </div>
         <div class="product-features">
-            <p class="product-highlight-text">product highlights</p>
+            <p class="product-highlight-text">{{resource.PRODUCT_HIGHLIGHTS}}</p>
             <ul class="product-highlight">
                 <li v-for="feature in productFeatures" v-html="feature"></li>
             </ul>
@@ -41,6 +41,7 @@
 <script>
 import ProductCounter from './ProductCounter';
 import VButton from '../Generic/VButton';
+import Resource from '../../resource/Resource-en.js';
 
 export default {
     name: 'ProductInformation',
@@ -55,6 +56,7 @@ export default {
 
     data() {
         return {
+            resource: Resource,
             listStyle: `paddingLeft: 48px;
                         paddingRight: 54px`,
             shareStyle: `paddingLeft: 51px;

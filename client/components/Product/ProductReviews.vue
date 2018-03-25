@@ -3,15 +3,15 @@
         <div class="product-review__overall-rating">
             <div class="product-review__overall-rating-wrapper">
                 <product-rating :rating="productReviews.consolidatedOverallRating" maxRating="5"></product-rating>
-                <span class="product-overall">overall</span>
+                <span class="product-overall">{{resource.OVERALL_LABEL}}</span>
             </div>
-            <p @click="viewAllReviews" class="product-view-all">{{view}} all 14 reviews</p>
+            <p @click="viewAllReviews" class="product-view-all">{{resource.VIEW_LABEL}} {{resource.ALL_LABEL}} {{productReviews.Reviews.length}} {{resource.REVIEWS_LABEL}}</p>
         </div>
         <div class="product-review__details">
             <div v-if="!showAllReviews" class="product-review__details--wrapper">
                 <div class="product-review__details-pro-con">
-                    <p><span class="product-view-label">PRO</span><span class="product-view-text">most helpful 4-5 star review</span></p>
-                    <p><span class="product-view-label">CON</span><span class="product-view-text">most helpful 1-2 star review</span></p>
+                    <p><span class="product-view-label">{{resource.PRO.LABEL}}</span><span class="product-view-text">{{resource.PRO.TEXT}}</span></p>
+                    <p><span class="product-view-label">{{resource.CON.LABEL}}</span><span class="product-view-text">{{resource.CON.TEXT}}</span></p>
                 </div>
                 <div class="product-review__details-wrapper">
                     <div class="product-review__details-pro" v-for="proReview in productReviews.Pro">
@@ -39,6 +39,7 @@
 import moment from 'moment';
 import ProductRating from '../Generic/ProductRating';
 import ProductReview from '../Generic/ProductReview';
+import Resource from '../../resource/Resource-en.js';
 
 export default {
     name: 'ProductReviews',
@@ -54,7 +55,7 @@ export default {
      data() {
         return {
             showAllReviews: false,
-            view: 'view'
+            resource: Resource
         }
     },
 
@@ -67,7 +68,7 @@ export default {
     methods: {
         viewAllReviews() {
             this.showAllReviews = !this.showAllReviews;
-            this.view = this.showAllReviews ? 'hide' : 'view';
+            this.view = this.showAllReviews ? this.resource.HIDE_LABEL : this.resource.VIEW_LABEL;
         }
     }
 }

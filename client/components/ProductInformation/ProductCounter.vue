@@ -1,12 +1,14 @@
 <template>
 	<div class="product-counter">
-        <p class="product-counter-text">quantity:</p>
+        <p class="product-counter-text">{{quantityLabel}}</p>
         <i @click="decrementProduct" class="fas fa-minus-circle"></i><span class="product-quantity">{{count}}</span>
         <i @click="incrementProduct" class="fas fa-plus-circle"></i>
     </div>
 </template>
 
 <script>
+import Resource from '../../resource/Resource-en.js';
+
 export default {
     name: 'ProductCounter',
     components: {
@@ -19,7 +21,8 @@ export default {
 
     data() {
         return {
-           count: 1
+           count: 1,
+           quantityLabel: Resource.QUANTITY_LABEL
         }
     },
 
