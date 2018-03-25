@@ -5,8 +5,9 @@
         <p class="product-review__post">
             <span class="product-review__screen-name">{{review.screenName}}</span>
             <span class="product-review__date-posted">{{datePosted(review.datePosted)}}</span>
+            <a href="javascript:void(0);" v-if="viewMore" @click="viewDetailedReview" class="product-review__view-more">{{viewMoreLabel}}</a>
         </p>
-        <div class="product-review__attributes" v-if="review.RatableAttributes.length">
+        <div v-if="showRatableAttributes" class="product-review__attributes">
             <div class="product-review__attribute" v-for="rating in review.RatableAttributes">
                 <p class="product-review__name">{{rating.description}}</p>
                 <product-rating :rating="rating.value" maxRating="5"></product-rating>
@@ -29,12 +30,17 @@ export default {
     	review: {
             type: Object,
             default: {}
+        },
+        viewMore: {
+            type: Boolean,
+            default: false
         }
     },
 
      data() {
         return {
-           
+           viewMoreLabel: 'see more',
+           showRatableAttributes: false
         }
     },
 
@@ -45,6 +51,10 @@ export default {
     methods: {
         datePosted(date) {
             return moment(date).format('LL');
+        },
+        viewDetailedReview() {
+            this.showRatableAttributes = !this.showRatableAttributes;
+            this.viewMoreLabel = this.showRatableAttributes ? 'see less' : 'see more';
         }
     }
 }
@@ -79,6 +89,12 @@ export default {
 .product-review__attributes {
     display: flex;
     margin-top: 10px;
+}
+
+.product-review__view-more {
+    color: #333;
+    cursor: pointer;
+    margin-left: 6px;
 }
 
 .product-review__attribute {

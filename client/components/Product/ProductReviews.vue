@@ -28,7 +28,7 @@
             <div v-else class="product-review__details--wrapper">
                 <div class="product-review__review" v-for="review in productReviews.Reviews">
                     <product-rating :rating="review.overallRating" maxRating="5"></product-rating>
-                    <product-review :review="review"></product-review>
+                    <product-review :viewMore=true :review="review"></product-review>
                 </div>
             </div>
         </div>
