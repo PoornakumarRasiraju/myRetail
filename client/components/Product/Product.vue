@@ -1,9 +1,17 @@
 <template>
 	<section>
         <p class="product-title">{{product.title}}</p>
-        <div class="product-primary-image">
-            <img :src="primaryImage" :alt="product.title">
+        <div class="product-image">
+            <img class="product-primary-image" :src="primaryImage" :alt="product.title">
         </div>
+       
+        <ul class="product-image-slider">
+            <li v-for="productImage in product.Images[0].AlternateImages">
+                <button @click="viewImage">
+                    <img width="50" height="50" :src="productImage.image">
+                </button>
+            </li>
+        </ul>
         <product-reviews></product-reviews>
 	</section>
 </template>
@@ -23,7 +31,7 @@ export default {
 
      data() {
         return {
-           
+           primaryImage: this.$store.state.CatalogEntryView[0].Images[0].PrimaryImage[0].image
         }
     },
 
@@ -31,12 +39,17 @@ export default {
         product() {
             return this.$store.state.CatalogEntryView[0];
         },
-        primaryImage() {
-            return this.$store.state.CatalogEntryView[0].Images[0].PrimaryImage[0].image;
-        }
+        // primaryImage() {
+        //     return this.$store.state.CatalogEntryView[0].Images[0].PrimaryImage[0].image;
+        // }
     },
     
     methods: {
+        viewImage($event, image) {
+            let selectedImage = $event.currentTarget.querySelectorAll('img')[0].src;
+
+            this.primaryImage = selectedImage;
+        }
     }
 }
 </script>
@@ -54,14 +67,31 @@ section {
     justify-content: center;
 }
 
-.product-primary-image {
+.product-image {
     display: flex;
     justify-content: center;
     margin-top: 50px;
     margin-bottom: 68px;
 }
 
-img {
+.product-primary-image {
     width: 400px;
+}
+
+.product-image-slider {
+    display: flex;
+    list-style: none;
+    margin-bottom: 25px;
+
+    li {
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    button {
+        background-color: transparent;
+        border: 1px solid #D6D6D6;
+        cursor: pointer;
+    }
 }
 </style>
