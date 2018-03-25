@@ -6,15 +6,24 @@
             <span class="product-review__screen-name">{{review.screenName}}</span>
             <span class="product-review__date-posted">{{datePosted(review.datePosted)}}</span>
         </p>
+        <div class="product-review__attributes" v-if="review.RatableAttributes.length">
+            <div class="product-review__attribute" v-for="rating in review.RatableAttributes">
+                <p class="product-review__name">{{rating.description}}</p>
+                <product-rating :rating="rating.value" maxRating="5"></product-rating>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 import moment from 'moment';
+import ProductRating from './ProductRating';
 
 export default {
     name: 'ProductReview',
-    components: {  },
+    components: { 
+        ProductRating
+    },
     
     props: {
     	review: {
@@ -65,5 +74,18 @@ export default {
 .product-review__post {
     font-size: 12px;
     color: #333;
+}
+
+.product-review__attributes {
+    display: flex;
+    margin-top: 10px;
+}
+
+.product-review__attribute {
+    margin-right: 20px;
+}
+
+.product-review__name {
+    margin-bottom: 2px;
 }
 </style>

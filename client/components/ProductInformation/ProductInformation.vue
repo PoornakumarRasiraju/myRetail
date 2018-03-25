@@ -168,7 +168,7 @@ section {
     padding-left: 18px;
 
     li {
-        margin-bottom: 6px;
+        margin-bottom: 8px;
     }
 }
 
@@ -202,6 +202,12 @@ section {
         padding-left: 15px;
         border-left: 1px solid #ccc;
         margin-left: 20px;
+    }
+}
+
+.product-highlight {
+    strong {
+        font-weight: normal;
     }
 }
 </style>
