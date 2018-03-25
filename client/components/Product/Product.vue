@@ -1,7 +1,9 @@
 <template>
 	<section>
         <p class="product-title">{{product.title}}</p>
-        <img :src="primaryImage" alt="">
+        <div class="product-primary-image">
+            <img :src="primaryImage" alt="">
+        </div>
         <product-reviews></product-reviews>
 	</section>
 </template>
@@ -50,6 +52,13 @@ section {
     font-size: 26px;
     color: #000;
     justify-content: center;
+}
+
+.product-primary-image {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 68px;
 }
 
 img {
