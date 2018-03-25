@@ -41,12 +41,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/_colors';
+
 .red {
-    color: #cc0000;
+    color: $primary-brand-color;
 }
 
 .grey {
-    color: #999;
+    color: $grey-color;
 }
 
 .product-rating {

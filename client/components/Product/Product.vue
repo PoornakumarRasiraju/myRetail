@@ -79,6 +79,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/_colors';
+
 section {
     display: flex;
     flex-direction: column;
@@ -87,7 +89,7 @@ section {
 
 .product-title {
     font-size: 26px;
-    color: #000;
+    color: $black-color;
     justify-content: center;
 }
 
@@ -132,7 +134,6 @@ section {
 
     button {
         background-color: transparent;
-        // border: 1px solid #D6D6D6;
         border: 1px solid transparent;
         cursor: pointer;
     }

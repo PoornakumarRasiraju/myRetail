@@ -74,6 +74,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/_colors';
+
 .product-reviews {
     display: flex;
     flex-direction: column;
@@ -100,7 +102,7 @@ export default {
 }
 
 .product-review__details {
-    background-color: #f6f5f5;
+    background-color: $white-smoke-color;
 }
 
 .product-review__details--wrapper {
@@ -108,7 +110,7 @@ export default {
 }
 
 .product-review__details-pro-con {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid $grey-80-color;
     display: flex;
     padding-bottom: 10px;
     padding-top: 10px;
@@ -126,7 +128,7 @@ export default {
 
 .product-view-text {
     font-size: 12px;
-    color: #666;
+    color: $grey-40-color;
 }
 
 .product-review__details-wrapper {
@@ -147,7 +149,7 @@ export default {
 }
 
 .product-review__review {
-    border-bottom: 1px solid #D6D6D6;
+    border-bottom: 1px solid $grey-84-color;
     margin-bottom: 30px;
 
     &:last-child {

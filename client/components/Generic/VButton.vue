@@ -27,6 +27,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+@import '../../styles/_colors';
+
 button, input[type="submit"] {
     background: none;
     color: inherit;
@@ -38,7 +40,6 @@ button, input[type="submit"] {
 
 .button {
     border-radius: 4px;
-    font-family: "Open Sans";
     font-size: 12px;
     font-weight: 600;
     padding: 6px 12px 6px 10px;
@@ -47,8 +48,8 @@ button, input[type="submit"] {
 
 .button--action {
     font-size: 12px;
-    color: #333;
-    background-color: #f3f3f3;
+    color: $grey-20-color;
+    background-color: $white-variant-color;
     padding: 6px 24px;
     border-radius: 3px;
 }
@@ -56,23 +57,23 @@ button, input[type="submit"] {
 .button--cart {
     padding-left: 48px;
     padding-right: 54px;
-    background-color: #cc0000;
-    color: #fff;
+    background-color: $primary-brand-color;
+    color: $white-color;
 
     &:hover {
-        background-color: #AA0000;
+        background-color: $primary-brand-hover-color;
     }
 }
 
 .button--pick-up {
-    background-color: #000;
-    color:#fff;
+    background-color: $black-color;
+    color: $white-color;
     padding-left: 34px;
     padding-right: 34px;
     margin-right: 30px;
 
     &:hover {
-        background-color: #333;
+        background-color: $grey-20-color;
     }
 }
 </style>

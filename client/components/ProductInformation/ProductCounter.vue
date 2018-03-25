@@ -43,8 +43,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/_colors';
+
 .product-counter {
-    border: 1px solid #d3d2d2;
+    border: 1px solid $grey-light-color;
     border-radius: 3px;
     display: flex;
     margin-top: 30px;
@@ -53,12 +55,12 @@ export default {
     max-width: 225px;
 
     .fas {
-        color: #ccc;
+        color: $grey-80-color;
         font-size: 30px;
         cursor: pointer;
 
         &:hover {
-            color: #333;
+            color: $grey-20-color;
         }
     }
 

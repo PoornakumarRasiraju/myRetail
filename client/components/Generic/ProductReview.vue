@@ -61,6 +61,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/_colors';
+
 .product-review {
     margin-bottom: 20px;
 }
@@ -75,7 +77,7 @@ export default {
 }
 
 .product-review__screen-name {
-    color: #0066cc;
+    color: $blue-color;
     cursor: pointer;
     margin-right: 4px;
 }
@@ -83,7 +85,7 @@ export default {
 .product-review__review,
 .product-review__post {
     font-size: 12px;
-    color: #333;
+    color: $grey-20-color;
 }
 
 .product-review__attributes {
@@ -92,7 +94,7 @@ export default {
 }
 
 .product-review__view-more {
-    color: #333;
+    color: $grey-20-color;
     cursor: pointer;
     margin-left: 6px;
 }

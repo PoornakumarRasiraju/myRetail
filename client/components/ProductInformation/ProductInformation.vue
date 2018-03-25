@@ -103,6 +103,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/_colors';
+
 section {
     display: flex;
     flex-direction: column;
@@ -119,7 +121,7 @@ section {
 }
 
 .product-price__qualifier {
-    color: #666;
+    color: $grey-40-color;
     font-size: 12px;
 }
 
@@ -128,12 +130,12 @@ section {
 }
 
 .product-promotions {
-    color: #cc0000;
+    color: $primary-brand-color;
     font-size: 18px;
     padding-top: 9px;
     padding-bottom: 11px;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+    border-top: 1px solid $grey-80-color;
+    border-bottom: 1px solid $grey-80-color;
 }
 
 .product-promotion {
@@ -156,7 +158,7 @@ section {
 }
 
 .product-highlight {
-    color: #666;
+    color: $grey-40-color;
     font-size: 14px;
     padding-left: 18px;
 
@@ -184,16 +186,18 @@ section {
 .product-returns__copy {
     font-size: 20px;
     align-items: center;
-    color: #666;
+    color: $grey-40-color;
 }
 </style>
 
 <style lang="scss">
+@import '../../styles/_colors';
+
 .product-returns__copy {
     p {
         font-size: 10px !important;
         padding-left: 15px;
-        border-left: 1px solid #ccc;
+        border-left: 1px solid $grey-80-color;
         margin-left: 20px;
     }
 }
