@@ -2,7 +2,7 @@
 	<section>
         <p class="product-title">{{product.title}}</p>
         <div class="product-primary-image">
-            <img :src="primaryImage" alt="">
+            <img :src="primaryImage" :alt="product.title">
         </div>
         <product-reviews></product-reviews>
 	</section>
