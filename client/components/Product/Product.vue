@@ -4,14 +4,17 @@
         <div class="product-image">
             <img class="product-primary-image" :src="primaryImage" :alt="product.title">
         </div>
-       
-        <ul class="product-image-slider">
-            <li v-for="productImage in product.Images[0].AlternateImages">
-                <button @click="viewImage">
-                    <img width="50" height="50" :src="productImage.image">
-                </button>
-            </li>
-        </ul>
+        <div class="product-images">
+            <i @click="slideLeft" class="fas fa-angle-left"></i>
+            <ul class="product-image-slider">
+                <li v-for="(productImage, index) in AlternateImages">
+                    <button :class="{active : isActive}" @click="viewImage($event, index)">
+                        <img width="50" height="50" :src="productImage.image">
+                    </button>
+                </li>
+            </ul>
+            <i @click="slideRight" class="fas fa-angle-right"></i>
+        </div>
         <product-reviews></product-reviews>
 	</section>
 </template>
@@ -31,24 +34,45 @@ export default {
 
      data() {
         return {
-           primaryImage: this.$store.state.CatalogEntryView[0].Images[0].PrimaryImage[0].image
+            imageCounter: 0,
+            isActive: true,
+            primaryImage: this.$store.state.CatalogEntryView[0].Images[0].PrimaryImage[0].image,
+            AlternateImages: this.$store.state.CatalogEntryView[0].Images[0].AlternateImages
         }
     },
 
     computed: {
         product() {
             return this.$store.state.CatalogEntryView[0];
-        },
-        // primaryImage() {
-        //     return this.$store.state.CatalogEntryView[0].Images[0].PrimaryImage[0].image;
-        // }
+        }
     },
     
     methods: {
-        viewImage($event, image) {
+        viewImage($event, index) {
             let selectedImage = $event.currentTarget.querySelectorAll('img')[0].src;
 
+            this.imageCounter = index+1;
             this.primaryImage = selectedImage;
+        },
+        slideLeft($event) {
+            if(this.imageCounter > 1 &&  this.imageCounter <= this.AlternateImages.length) {
+                console.log(this.imageCounter);
+                this.imageCounter--;
+                this.primaryImage = this.$store.state.CatalogEntryView[0].Images[0].AlternateImages[this.imageCounter-1].image;
+            } else {
+                this.primaryImage = this.$store.state.CatalogEntryView[0].Images[0].AlternateImages[this.AlternateImages.length-1].image;
+                this.imageCounter = this.AlternateImages.length - 1;
+            }
+        },
+        slideRight($event) {
+            if(this.imageCounter < this.AlternateImages.length) {
+                console.log(this.imageCounter);
+                this.primaryImage = this.$store.state.CatalogEntryView[0].Images[0].AlternateImages[this.imageCounter].image;
+                this.imageCounter++;
+            } else {
+                this.primaryImage = this.$store.state.CatalogEntryView[0].Images[0].AlternateImages[0].image;
+                this.imageCounter = 1;
+            }
         }
     }
 }
@@ -78,9 +102,22 @@ section {
     width: 400px;
 }
 
+.product-images {
+    display: flex;
+    justify-content: center;
+}
+
+.fas {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 28px;
+}
+
 .product-image-slider {
     display: flex;
     list-style: none;
+    padding-left: 10px;
     margin-bottom: 25px;
 
     li {
@@ -90,7 +127,8 @@ section {
 
     button {
         background-color: transparent;
-        border: 1px solid #D6D6D6;
+        // border: 1px solid #D6D6D6;
+        border: 1px solid transparent;
         cursor: pointer;
     }
 }
