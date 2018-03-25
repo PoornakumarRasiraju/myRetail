@@ -7,7 +7,7 @@
         <div class="product-images">
             <i @click="slideLeft" class="fas fa-angle-left"></i>
             <ul class="product-image-slider">
-                <li v-for="(productImage, index) in AlternateImages">
+                <li v-for="(productImage, index) in AlternateImages" :key="productImage.id">
                     <button :class="{active : isActive}" @click="viewImage($event, index)">
                         <img width="50" height="50" :src="productImage.image">
                     </button>

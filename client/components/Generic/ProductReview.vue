@@ -8,7 +8,7 @@
             <a href="javascript:void(0);" v-if="viewMore" @click="viewDetailedReview" class="product-review__view-more">{{viewMoreLabel}}</a>
         </p>
         <div v-if="showRatableAttributes" class="product-review__attributes">
-            <div class="product-review__attribute" v-for="rating in review.RatableAttributes">
+            <div class="product-review__attribute" v-for="rating in review.RatableAttributes" :key="rating.id">
                 <p class="product-review__name">{{rating.description}}</p>
                 <product-rating :rating="rating.value" maxRating="5"></product-rating>
             </div>

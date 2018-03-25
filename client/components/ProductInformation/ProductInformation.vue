@@ -5,7 +5,7 @@
             <span class="product-price__qualifier">{{productPrice.priceQualifier}}</span>
         </p>
         <div class="product-promotions">
-            <p  class="product-promotion" v-for="promotion in productPromotions">
+            <p  class="product-promotion" v-for="promotion in productPromotions" :key="promotion.id">
                 <i class="fas fa-tag"></i>
                 <span v-html="promotion.Description[0].shortDescription"></span>
             </p>
@@ -32,7 +32,7 @@
         <div class="product-features">
             <p class="product-highlight-text">{{resource.PRODUCT_HIGHLIGHTS}}</p>
             <ul class="product-highlight">
-                <li v-for="feature in productFeatures" v-html="feature"></li>
+                <li v-for="feature in productFeatures" v-html="feature" :key="feature.id"></li>
             </ul>
         </div>
 	</section>

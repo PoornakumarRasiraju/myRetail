@@ -1,6 +1,6 @@
 <template>
 	<div class="product-rating">
-        <span v-for="star in maxStarRatings">
+        <span v-for="star in maxStarRatings" :key="star.id">
             <i v-if="star <= starRating" class="fas fa-star red"></i>
             <i v-else class="fa fa-star grey"></i>
         </span>
