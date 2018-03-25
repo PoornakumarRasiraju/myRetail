@@ -37,7 +37,7 @@ button, input[type="submit"] {
 }
 
 .button {
-    border-radius: 1px;
+    border-radius: 4px;
     font-family: "Open Sans";
     font-size: 12px;
     font-weight: 600;
@@ -51,5 +51,28 @@ button, input[type="submit"] {
     background-color: #f3f3f3;
     padding: 6px 24px;
     border-radius: 3px;
+}
+
+.button--cart {
+    padding-left: 48px;
+    padding-right: 54px;
+    background-color: #cc0000;
+    color: #fff;
+
+    &:hover {
+        background-color: #AA0000;
+    }
+}
+
+.button--pick-up {
+    background-color: #000;
+    color:#fff;
+    padding-left: 34px;
+    padding-right: 34px;
+    margin-right: 30px;
+
+    &:hover {
+        background-color: #333;
+    }
 }
 </style>

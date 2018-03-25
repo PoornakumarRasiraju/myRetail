@@ -12,8 +12,8 @@
         </div>
         <product-counter></product-counter>
           <div class="product-add-to-cart">
-            <v-button  v-if="isInStore" :buttonStyle="pickUpStyle" label="PICK UP IN STORE"></v-button>
-            <v-button v-if="isProductAvailable" :buttonStyle="cartStyle" label="ADD TO CART"></v-button>
+            <v-button  v-if="isInStore" :classes="pickUpStyle" label="PICK UP IN STORE"></v-button>
+            <v-button v-if="isProductAvailable" :classes="cartStyle" label="ADD TO CART"></v-button>
         </div>
         <div class="product-returns">
             <div class="product-returns__copy" v-html="productReturns"></div>
@@ -59,15 +59,8 @@ export default {
                         paddingRight: 54px`,
             shareStyle: `paddingLeft: 51px;
                         paddingRight: 57px`,
-            pickUpStyle: `backgroundColor: #000;
-                        color:#fff;
-                        paddingLeft: 34px;
-                        paddingRight: 34px;
-                        marginRight: 30px`,
-            cartStyle: `paddingLeft: 48px;
-                        paddingRight: 54px;
-                        backgroundColor: #cc0000;
-                        color: #fff`
+            pickUpStyle: `button--pick-up`,
+            cartStyle: `button--cart`
         }
     },
 
