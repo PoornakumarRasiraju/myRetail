@@ -56,6 +56,10 @@ export default {
         color: #ccc;
         font-size: 30px;
         cursor: pointer;
+
+        &:hover {
+            color: #333;
+        }
     }
 
     .fa-minus-circle {
