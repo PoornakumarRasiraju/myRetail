@@ -120,6 +120,11 @@ section {
     padding-left: 10px;
     margin-bottom: 25px;
 
+    //Image
+    width: 35%;
+    position: relative;
+    overflow: hidden;
+
     li {
         cursor: pointer;
         margin-right: 10px;
