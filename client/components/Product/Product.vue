@@ -121,7 +121,7 @@ section {
     margin-bottom: 25px;
 
     //Image
-    width: 35%;
+    width: 33%;
     position: relative;
     overflow: hidden;
 
