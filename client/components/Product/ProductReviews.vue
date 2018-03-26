@@ -5,7 +5,7 @@
                 <product-rating :rating="productReviews.consolidatedOverallRating" maxRating="5"></product-rating>
                 <span class="product-overall">{{resource.OVERALL_LABEL}}</span>
             </div>
-            <p @click="viewAllReviews" class="product-view-all">{{resource.VIEW_LABEL}} {{resource.ALL_LABEL}} {{productReviews.Reviews.length}} {{resource.REVIEWS_LABEL}}</p>
+            <p @click="viewAllReviews" class="product-view-all">{{toggleLabel}} {{resource.ALL_LABEL}} {{productReviews.Reviews.length}} {{resource.REVIEWS_LABEL}}</p>
         </div>
         <div class="product-review__details">
             <div v-if="!showAllReviews" class="product-review__details--wrapper">
@@ -63,7 +63,8 @@ export default {
      data() {
         return {
             showAllReviews: false,
-            resource: Resource
+            resource: Resource,
+            toggleLabel: Resource.VIEW_LABEL
         }
     },
 
@@ -76,7 +77,7 @@ export default {
     methods: {
         viewAllReviews() {
             this.showAllReviews = !this.showAllReviews;
-            this.view = this.showAllReviews ? this.resource.HIDE_LABEL : this.resource.VIEW_LABEL;
+            this.toggleLabel = this.showAllReviews ? this.resource.HIDE_LABEL : this.resource.VIEW_LABEL;
         }
     }
 }

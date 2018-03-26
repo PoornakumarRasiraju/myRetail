@@ -7,7 +7,7 @@
         <div class="product-view-large">
             <i class="fas fa-search-plus"></i><span>{{resource.VIEW_LARGER_LABEL}}</span>
         </div>
-        <div class="product-images">
+        <div ref="product-images" class="product-images">
             <i @click="slideLeft" class="fas fa-angle-left"></i>
             <div>
                 <ul class="product-image-slider">
@@ -37,6 +37,7 @@ export default {
 
     data() {
         return {
+            el: '',
             imageCounter: 0,
             isActive: true,
             resource: Resource,
@@ -57,11 +58,11 @@ export default {
             this.imageCounter = index+1;
             this.primaryImage = selectedImage;
 
-            $('.product-image-slider li').removeClass('selected');
-            $('.product-image-slider li:eq('+index+')').addClass('selected');
+            $(this.el).find('.product-image-slider li').removeClass('selected');
+            $(this.el).find(`.product-image-slider li:eq('${index}')`).addClass('selected');
         },
         slideLeft($event) {
-            $('.product-image-slider li').removeClass('selected');
+            $(this.el).find('.product-image-slider li').removeClass('selected');
 
             if(this.imageCounter > 1 &&  this.imageCounter <= this.AlternateImages.length) {
                 this.imageCounter--;
@@ -69,10 +70,10 @@ export default {
 
                 if(this.imageCounter > 0) {
                     let hideImage = this.imageCounter-1;
-                    $('.product-image-slider li:eq('+hideImage+')').addClass('show');
+                    $(this.el).find(`.product-image-slider li:eq('${hideImage}')`).addClass('show');
                 }
 
-                $('.product-image-slider li:eq('+imageSlide+')').addClass('selected');
+                $(this.el).find(`.product-image-slider li:eq('${imageSlide}')`).addClass('selected');
                 this.primaryImage = this.$store.state.CatalogEntryView[0].Images[0].AlternateImages[this.imageCounter-1].image;
             } 
 
@@ -82,23 +83,23 @@ export default {
                 this.imageCounter = this.AlternateImages.length-1;
                 this.primaryImage = this.$store.state.CatalogEntryView[0].Images[0].AlternateImages[this.imageCounter].image;
                 let PrimaryImage = this.imageCounter;
-                $('.product-image-slider li').removeClass('show');
-                $('.product-image-slider li').addClass('hide');
-                $('.product-image-slider li:eq('+PrimaryImage+')').addClass('show');
-                $('.product-image-slider li:eq('+PrimaryImage+')').addClass('selected');
+                $(this.el).find('.product-image-slider li').removeClass('show');
+                $(this.el).find('.product-image-slider li').addClass('hide');
+                $(this.el).find(`.product-image-slider li:eq('${PrimaryImage}')`).addClass('show');
+                $(this.el).find(`.product-image-slider li:eq('${PrimaryImage}')`).addClass('selected');
             }
         },
         slideRight($event) {
-            $('.product-image-slider li').removeClass('selected');
+            $(this.el).find('.product-image-slider li').removeClass('selected');
 
             if(this.imageCounter < this.AlternateImages.length) {
                 
-                $('.product-image-slider li:eq('+this.imageCounter+')').addClass('selected');
+                $(this.el).find(`.product-image-slider li:eq('${this.imageCounter}')`).addClass('selected');
 
                 if(this.imageCounter > 0) {
                     let hideImage = this.imageCounter-1;
-                    $('.product-image-slider li:eq('+hideImage+')').removeClass('show');
-                    $('.product-image-slider li:eq('+hideImage+')').addClass('hide');
+                    $(this.el).find(`.product-image-slider li:eq('${hideImage}')`).removeClass('show');
+                    $(this.el).find(`.product-image-slider li:eq('${hideImage}')`).addClass('hide');
                 }
 
                 this.primaryImage = this.$store.state.CatalogEntryView[0].Images[0].AlternateImages[this.imageCounter].image;
@@ -109,12 +110,16 @@ export default {
                 this.imageCounter++;
             }else if (this.imageCounter > this.AlternateImages.length) {
                 this.imageCounter = 0;
-                $('.product-image-slider li').removeClass('hide');
-                $('.product-image-slider li:eq(0)').addClass('selected');
+                $(this.el).find('.product-image-slider li').removeClass('hide');
+                $(this.el).find('.product-image-slider li:eq(0)').addClass('selected');
                 this.primaryImage = this.$store.state.CatalogEntryView[0].Images[0].AlternateImages[this.imageCounter].image;
                 this.imageCounter++;
             }
         }
+    },
+
+    mounted() {
+        this.el = this.$refs['product-images'];
     }
 }
 </script>
