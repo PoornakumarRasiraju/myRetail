@@ -1,5 +1,5 @@
 <template>
-	<section class="product-reviews">
+	<div class="product-reviews">
         <div class="product-review__overall-rating">
             <div class="product-review__overall-rating-wrapper">
                 <product-rating :rating="productReviews.consolidatedOverallRating" maxRating="5"></product-rating>
@@ -14,33 +14,33 @@
                     <p><span class="product-view-label">{{resource.CON.LABEL}}</span><span class="product-view-text">{{resource.CON.TEXT}}</span></p>
                 </div>
                 <div class="product-review__details-wrapper">
-                    <div class="product-review__details-pro" v-for="proReview in productReviews.Pro" :key="proReview.id">
+                    <article class="product-review__details-pro" v-for="proReview in productReviews.Pro" :key="proReview.id">
                         <product-rating :rating="proReview.overallRating" 
                             maxRating="5">
                         </product-rating>
                         <product-review :review="proReview"></product-review>
-                    </div>
-                    <div class="product-review__details-con" v-for="conReview in productReviews.Con" :key="conReview.id">
+                    </article>
+                    <article class="product-review__details-con" v-for="conReview in productReviews.Con" :key="conReview.id">
                         <product-rating :rating="conReview.overallRating" 
                             maxRating="5">
                         </product-rating>
                         <product-review :review="conReview"></product-review>
-                    </div>
+                    </article>
                 </div>
             </div>
 
             <div v-else class="product-review__details--wrapper">
-                <div class="product-review__review" v-for="review in productReviews.Reviews" :key="review.id">
+                <article class="product-review__review" v-for="review in productReviews.Reviews" :key="review.id">
                     <product-rating :rating="review.overallRating" 
                         maxRating="5">
                     </product-rating>
                     <product-review :viewMore=true 
                         :review="review">
                     </product-review>
-                </div>
+                </article>
             </div>
         </div>
-	</section>
+	</div>
 </template>
 
 <script>

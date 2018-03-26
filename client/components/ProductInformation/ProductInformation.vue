@@ -1,5 +1,5 @@
 <template>
-	<section>
+	<div class="product-information__wrapper">
         <p class="product-price">
             <span class="product-price__value">{{productPrice.formattedPriceValue}}</span>
             <span class="product-price__qualifier">{{productPrice.priceQualifier}}</span>
@@ -29,13 +29,13 @@
                 <v-button :buttonStyle="shareStyle" :label="resource.BUTTON_LABEL.SHARE"></v-button>
             </div>
         </div>
-        <div class="product-features">
-            <p class="product-highlight-text">{{resource.PRODUCT_HIGHLIGHTS}}</p>
+        <section class="product-features">
+            <h2 class="product-highlight-text">{{resource.PRODUCT_HIGHLIGHTS}}</h2>
             <ul class="product-highlight">
                 <li v-for="feature in productFeatures" v-html="feature" :key="feature.id"></li>
             </ul>
-        </div>
-	</section>
+        </section>
+	</div>
 </template>
 
 <script>
@@ -108,7 +108,7 @@ export default {
 <style lang="scss" scoped>
 @import '../../styles/_colors';
 
-section {
+.product-information__wrapper {
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -158,6 +158,8 @@ section {
 
 .product-highlight-text {
     font-size: 36px;
+    font-weight: normal;
+    margin: 0;
 }
 
 .product-highlight {
