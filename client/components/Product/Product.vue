@@ -64,7 +64,6 @@ export default {
             $('.product-image-slider li').removeClass('selected');
 
             if(this.imageCounter > 1 &&  this.imageCounter <= this.AlternateImages.length) {
-                console.log(this.imageCounter);
                 this.imageCounter--;
                 let imageSlide = this.imageCounter-1;
 
@@ -75,17 +74,25 @@ export default {
 
                 $('.product-image-slider li:eq('+imageSlide+')').addClass('selected');
                 this.primaryImage = this.$store.state.CatalogEntryView[0].Images[0].AlternateImages[this.imageCounter-1].image;
-            } else {
-                // this.primaryImage = this.$store.state.CatalogEntryView[0].Images[0].AlternateImages[this.AlternateImages.length-1].image;
-                // this.imageCounter = this.AlternateImages.length - 1;
-                // $('.product-image-slider li:eq('+this.imageCounter+')').addClass('selected');
+            } 
+
+            if(this.imageCounter === 1) {
+                this.imageCounter--;
+            } else if(this.imageCounter < 1) {
+                this.imageCounter = this.AlternateImages.length-1;
+                this.primaryImage = this.$store.state.CatalogEntryView[0].Images[0].AlternateImages[this.imageCounter].image;
+                let PrimaryImage = this.imageCounter;
+                $('.product-image-slider li').removeClass('show');
+                $('.product-image-slider li').addClass('hide');
+                $('.product-image-slider li:eq('+PrimaryImage+')').addClass('show');
+                $('.product-image-slider li:eq('+PrimaryImage+')').addClass('selected');
             }
         },
         slideRight($event) {
             $('.product-image-slider li').removeClass('selected');
 
             if(this.imageCounter < this.AlternateImages.length) {
-                console.log(this.imageCounter);
+                
                 $('.product-image-slider li:eq('+this.imageCounter+')').addClass('selected');
 
                 if(this.imageCounter > 0) {
@@ -96,17 +103,16 @@ export default {
 
                 this.primaryImage = this.$store.state.CatalogEntryView[0].Images[0].AlternateImages[this.imageCounter].image;
                 this.imageCounter++;
-            } else {
-                // this.primaryImage = this.$store.state.CatalogEntryView[0].Images[0].AlternateImages[0].image;
-                // this.imageCounter = 1;
-                // $('.product-image-slider li').addClass('show');
-                // $('.product-image-slider li:eq(0)').addClass('selected');
             }
 
             if(this.imageCounter === this.AlternateImages.length) {
-                // this.imageCounter = 0;
-                // $('.product-image-slider li').removeClass('hide');
-                $('.product-image-slider li').addClass('show');
+                this.imageCounter++;
+            }else if (this.imageCounter > this.AlternateImages.length) {
+                this.imageCounter = 0;
+                $('.product-image-slider li').removeClass('hide');
+                $('.product-image-slider li:eq(0)').addClass('selected');
+                this.primaryImage = this.$store.state.CatalogEntryView[0].Images[0].AlternateImages[this.imageCounter].image;
+                this.imageCounter++;
             }
         }
     }
