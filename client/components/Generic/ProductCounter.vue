@@ -1,7 +1,7 @@
 <template>
 	<div class="product-counter">
-        <p class="product-counter-text">{{quantityLabel}}</p>
-        <i @click="decrementProduct" class="fas fa-minus-circle"></i><span class="product-quantity">{{count}}</span>
+        <p class="product-counter-text">{{label}}</p>
+        <i @click="decrementProduct" class="fas fa-minus-circle"></i><span class="product-quantity">{{counter}}</span>
         <i @click="incrementProduct" class="fas fa-plus-circle"></i>
     </div>
 </template>
@@ -16,29 +16,31 @@ export default {
     },
     
     props: {
-    	
+    	label: {
+            type: String
+        },
+        count: {
+            type: [String, Number],
+            default: 1
+        }
     },
 
     data() {
         return {
-           count: 1,
-           quantityLabel: Resource.QUANTITY_LABEL
+           counter: this.count
         }
     },
 
     computed: {
-        productPrice() {
-            return this.$store.state.CatalogEntryView[0].Offers[0].OfferPrice[0];
-        }
     },
     
     methods: {
         incrementProduct() {
-            this.count++;
+            this.counter++;
         },
         decrementProduct() {
-            if(this.count > 1) {
-                this.count--;
+            if(this.counter > 1) {
+                this.counter--;
             }
         }
     }

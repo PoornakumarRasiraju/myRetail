@@ -10,8 +10,8 @@
                 <span v-html="promotion.Description[0].shortDescription"></span>
             </p>
         </div>
-        <product-counter></product-counter>
-          <div class="product-add-to-cart">
+        <product-counter :label="resource.QUANTITY_LABEL" count="1"></product-counter>
+        <div class="product-add-to-cart">
             <v-button  v-if="isInStore" :classes="pickUpStyle" :label="resource.BUTTON_LABEL.PICK_UP"></v-button>
             <v-button v-if="isProductAvailable" :classes="cartStyle" :label="resource.BUTTON_LABEL.ADD_CART"></v-button>
         </div>
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import ProductCounter from './ProductCounter';
+import ProductCounter from '../Generic/ProductCounter';
 import VButton from '../Generic/VButton';
 import Resource from '../../resource/Resource-en.js';
 
