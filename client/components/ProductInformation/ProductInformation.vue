@@ -134,8 +134,8 @@ section {
 .product-promotions {
     color: $primary-brand-color;
     font-size: 18px;
-    padding-top: 20px;
-    padding-bottom: 30px;
+    padding-top: 18px;
+    padding-bottom: 22px;
     border-top: 1px solid $grey-80-color;
     border-bottom: 1px solid $grey-80-color;
 }
@@ -218,6 +218,11 @@ section {
         p {
             margin-left: 11%;
         }
+    }
+
+    .product-promotions {
+        padding-top: 20px;
+        padding-bottom: 30px;
     }
 }
 </style>

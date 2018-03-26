@@ -4,6 +4,9 @@
         <div class="product-image">
             <img class="product-primary-image" :src="primaryImage" :alt="product.title">
         </div>
+        <div class="product-view-large">
+            <i class="fas fa-search-plus"></i><span>view larger</span>
+        </div>
         <div class="product-images">
             <i @click="slideLeft" class="fas fa-angle-left"></i>
             <ul class="product-image-slider">
@@ -92,7 +95,22 @@ section {
     display: flex;
     justify-content: center;
     margin-top: 50px;
-    margin-bottom: 68px;
+    margin-bottom: 72px;
+}
+
+.product-view-large {
+    color: #666;
+    display: flex;
+    justify-content: center;
+
+    .fa-search-plus {
+        font-size: 20px;
+    }
+
+    span {
+        font-size: 14px;
+        margin-left: 6px;
+    }
 }
 
 .product-primary-image {
@@ -106,6 +124,10 @@ section {
 
 .fas {
     cursor: pointer;
+}
+
+.fa-angle-left,
+.fa-angle-right {
     display: flex;
     align-items: center;
     font-size: 28px;
@@ -115,6 +137,7 @@ section {
     display: flex;
     list-style: none;
     padding-left: 10px;
+    margin-top: 26px;
     margin-bottom: 25px;
     width: 33%;
     position: relative;
