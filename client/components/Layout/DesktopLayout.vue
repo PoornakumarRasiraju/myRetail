@@ -14,6 +14,7 @@ import ProductInformation from 'components/ProductInformation/ProductInformation
 import ProductReviews from 'components/Product/ProductReviews';
 
 export default {
+    name: 'DesktopLayout',
     components: {
         Product,
         ProductInformation,

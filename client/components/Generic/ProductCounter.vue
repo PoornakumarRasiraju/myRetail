@@ -12,7 +12,6 @@ import Resource from '../../resource/Resource-en.js';
 export default {
     name: 'ProductCounter',
     components: {
-        
     },
     
     props: {
