@@ -1,60 +1,49 @@
 <template>
-  <div class="product-catalog">
-    <div class="product-details">
-      <product></product>
-      <product-information class="product-information"></product-information>
-    </div>
-    <product-reviews class="product-reviews"></product-reviews>
+  <div class="product-layout">
+    <mobile-layout v-if="mobile"></mobile-layout>
+    <desktop-layout v-else></desktop-layout>
   </div>
 </template>
 
 <script>
-import Product from 'components/Product/Product';
-import ProductInformation from 'components/ProductInformation/ProductInformation';
-import ProductReviews from 'components/Product/ProductReviews';
+import MobileDetect from 'mobile-detect';
+import MobileLayout from 'components/Layout/MobileLayout';
+import DesktopLayout from 'components/Layout/DesktopLayout';
 
 export default {
   components: {
-    Product,
-    ProductInformation,
-    ProductReviews
+    MobileLayout,
+    DesktopLayout
+  },
+
+  data() {
+    return {
+      mobile: false
+    }
+  },
+
+  methods: {
+    isMobile() {
+      const md = new MobileDetect(window.navigator.userAgent);
+
+      if(md.mobile()) {
+        this.mobile = true;
+      }
+    }
+  },
+
+  mounted() {
+    this.isMobile();
   }
 }
 </script>
 
 <style lang="scss">
-.product-catalog {
-  display: flex;
-  flex-direction: column;
+.product-layout {
   font-family: Arial, Helvetica, sans-serif;
-  margin: 40px 30px;
-}
-
-.product-details {
-  display: flex;
-}
-
-.product-information {
-  margin-left: 33px;
-}
-
-.product-reviews {
-  display: flex;
-  width: 50%;
 }
 
 p {
   margin: 0;
-}
-
-@media only screen and (max-device-width : 768px) {
-  .product-details {
-    flex-direction: column;
-  }
-
-  .product-reviews {
-    margin-top: 58px;
-    width: 100%;
-  }
 }
 </style>

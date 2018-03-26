@@ -5,7 +5,7 @@
             <img class="product-primary-image" :src="primaryImage" :alt="product.title">
         </div>
         <div class="product-view-large">
-            <i class="fas fa-search-plus"></i><span>view larger</span>
+            <i class="fas fa-search-plus"></i><span>{{resource.VIEW_LARGER_LABEL}}</span>
         </div>
         <div class="product-images">
             <i @click="slideLeft" class="fas fa-angle-left"></i>
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import Resource from '../../resource/Resource-en.js';
 import $ from 'jQuery';
 
 export default {
@@ -34,10 +35,11 @@ export default {
     props: {
     },
 
-     data() {
+    data() {
         return {
             imageCounter: 0,
             isActive: true,
+            resource: Resource,
             primaryImage: this.$store.state.CatalogEntryView[0].Images[0].PrimaryImage[0].image,
             AlternateImages: this.$store.state.CatalogEntryView[0].Images[0].AlternateImages
         }
@@ -51,7 +53,7 @@ export default {
     
     methods: {
         viewImage($event, index) {
-            let selectedImage = $event.currentTarget.querySelectorAll('img')[0].src;
+            const selectedImage = $event.currentTarget.querySelectorAll('img')[0].src;
             this.imageCounter = index+1;
             this.primaryImage = selectedImage;
 
@@ -70,7 +72,6 @@ export default {
                     let hideImage = this.imageCounter-1;
                     $('.product-image-slider li:eq('+hideImage+')').addClass('show');
                 }
-
 
                 $('.product-image-slider li:eq('+imageSlide+')').addClass('selected');
                 this.primaryImage = this.$store.state.CatalogEntryView[0].Images[0].AlternateImages[this.imageCounter-1].image;
@@ -103,7 +104,7 @@ export default {
             }
 
             if(this.imageCounter === this.AlternateImages.length) {
-                this.imageCounter = 0;
+                // this.imageCounter = 0;
                 // $('.product-image-slider li').removeClass('hide');
                 $('.product-image-slider li').addClass('show');
             }
@@ -112,6 +113,7 @@ export default {
 }
 </script>
 
+<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 @import '../../styles/_colors';
 

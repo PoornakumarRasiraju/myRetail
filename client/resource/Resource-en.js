@@ -2,6 +2,7 @@ export default {
     OVERALL_LABEL: 'overall',
     ALL_LABEL: 'all',
     REVIEWS_LABEL: 'reviews',
+    VIEW_LARGER_LABEL: 'view larger',
     PRO: {
         LABEL: 'PRO',
         TEXT: 'most helpful 4-5 star review'
