@@ -15,21 +15,16 @@
             </ul>
             <i @click="slideRight" class="fas fa-angle-right"></i>
         </div>
-        <product-reviews></product-reviews>
 	</section>
 </template>
 
 <script>
-import ProductReviews from './ProductReviews';
-
 export default {
     name: 'Product',
     components: { 
-        ProductReviews
     },
     
     props: {
-    	
     },
 
      data() {
@@ -121,8 +116,6 @@ section {
     list-style: none;
     padding-left: 10px;
     margin-bottom: 25px;
-
-    //Image
     width: 33%;
     position: relative;
     overflow: hidden;

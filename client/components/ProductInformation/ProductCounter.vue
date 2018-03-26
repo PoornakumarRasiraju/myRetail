@@ -52,7 +52,7 @@ export default {
     border: 1px solid $grey-light-color;
     border-radius: 3px;
     display: flex;
-    margin-top: 30px;
+    margin-top: 22px;
     margin-bottom: 30px;
     padding: 5px 15px 5px 11px;
     max-width: 225px;
