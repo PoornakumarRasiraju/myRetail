@@ -10,7 +10,7 @@
         <div class="product-review__details">
             <div v-if="!showAllReviews" class="product-review__details--wrapper">
                 <div class="product-review__details-pro-con">
-                    <p><span class="product-view-label">{{resource.PRO.LABEL}}</span><span class="product-view-text">{{resource.PRO.TEXT}}</span></p>
+                    <p class="product-review__details-pro-label"><span class="product-view-label">{{resource.PRO.LABEL}}</span><span class="product-view-text">{{resource.PRO.TEXT}}</span></p>
                     <p><span class="product-view-label">{{resource.CON.LABEL}}</span><span class="product-view-text">{{resource.CON.TEXT}}</span></p>
                 </div>
                 <div class="product-review__details-wrapper">
@@ -131,6 +131,10 @@ export default {
         flex-direction: column;
         flex: 1;
     }
+}
+
+.product-review__details-pro-label {
+    margin-right: 22px;
 }
 
 .product-view-label {
