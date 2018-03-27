@@ -11,7 +11,7 @@
             </p>
         </div>
         <product-counter :label="resource.QUANTITY_LABEL" count="1"></product-counter>
-        <div class="product-add-to-cart">
+        <div v-if="isInStore || isProductAvailable" class="product-add-to-cart">
             <v-button v-if="isInStore" :classes="pickUpStyle" :label="resource.BUTTON_LABEL.PICK_UP"></v-button>
             <v-button v-if="isProductAvailable" :classes="cartStyle" :label="resource.BUTTON_LABEL.ADD_CART"></v-button>
         </div>
