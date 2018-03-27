@@ -52,6 +52,7 @@ section {
     font-size: 26px;
     font-weight: normal;
     color: $black-color;
+    display: flex;
     justify-content: center;
     margin: 0;
 }
