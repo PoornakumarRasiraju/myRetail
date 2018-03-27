@@ -12,7 +12,7 @@
         </div>
         <product-counter :label="resource.QUANTITY_LABEL" count="1"></product-counter>
         <div class="product-add-to-cart">
-            <v-button  v-if="isInStore" :classes="pickUpStyle" :label="resource.BUTTON_LABEL.PICK_UP"></v-button>
+            <v-button v-if="isInStore" :classes="pickUpStyle" :label="resource.BUTTON_LABEL.PICK_UP"></v-button>
             <v-button v-if="isProductAvailable" :classes="cartStyle" :label="resource.BUTTON_LABEL.ADD_CART"></v-button>
         </div>
         <div class="product-returns">
@@ -188,7 +188,7 @@ export default {
 }
 
 .product-returns__copy {
-    font-size: 10px;
+    font-size: 14px;
     align-items: center;
     color: $grey-40-color;
 }
@@ -217,12 +217,6 @@ export default {
 }
 
 @media only screen and (max-device-width : 768px) {
-    .product-returns__copy {
-        p {
-            margin-left: 11%;
-        }
-    }
-
     .product-promotions {
         padding-top: 20px;
         padding-bottom: 30px;

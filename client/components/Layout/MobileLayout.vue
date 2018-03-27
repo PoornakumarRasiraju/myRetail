@@ -1,5 +1,5 @@
 <template>
-  <div class="product-catalog">
+  <div class="product-mobile-catalog">
     <product></product>
     <product-information></product-information>
     <product-reviews class="product-reviews"></product-reviews>
@@ -33,7 +33,7 @@ export default {
 </script>
 
 <style lang="scss">
-.product-catalog {
+.product-mobile-catalog {
   display: flex;
   flex-direction: column;
   margin: 40px 20px;

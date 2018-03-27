@@ -25,7 +25,7 @@ export default {
   methods: {
     isMobile() {
       const md = new MobileDetect(window.navigator.userAgent);
-
+    
       if(md.mobile()) {
         this.mobile = true;
       }
@@ -41,6 +41,13 @@ export default {
 <style lang="scss">
 .product-layout {
   font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+   text-size-adjust: 100%; 
+  -ms-text-size-adjust: 100%; 
+  -moz-text-size-adjust: 100%; 
+  -webkit-text-size-adjust: 100%;
 }
 
 p {
