@@ -53,5 +53,6 @@ section {
     font-weight: normal;
     color: $black-color;
     justify-content: center;
+    margin: 0;
 }
 </style>

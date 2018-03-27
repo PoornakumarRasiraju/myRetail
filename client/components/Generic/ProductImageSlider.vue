@@ -206,4 +206,10 @@ export default {
         cursor: pointer;
     }
 }
+
+@media only screen and (max-device-width : 812px) {
+    .product-view-large {
+        display: none;
+    }
+}
 </style>

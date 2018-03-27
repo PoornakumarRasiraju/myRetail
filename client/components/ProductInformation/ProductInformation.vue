@@ -216,7 +216,7 @@ export default {
     }
 }
 
-@media only screen and (max-device-width : 768px) {
+@media only screen and (max-device-width : 812px) {
     .product-promotions {
         padding-top: 20px;
         padding-bottom: 30px;
